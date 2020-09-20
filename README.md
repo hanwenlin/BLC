@@ -2,7 +2,7 @@
 TensorFlow2+Python3.8实现实体抽取模型
 
 ## 实现的模型
-[BERT+BiLSTM+CRF]()     
+[BERT+BiLSTM+CRF](https://github.com/jtyoui/BLC/tree/bert+bilstm+crf)     
 [CNN+BiLSTM+CRF](https://github.com/jtyoui/BLC/tree/cnn+bilstm+crf)    
 [BiLSTM+CRF](https://github.com/jtyoui/BLC/tree/bilstm+crf) 
 
