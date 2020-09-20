@@ -3,7 +3,7 @@ TensorFlow2+Python3.8实现实体抽取模型
 
 ## 实现的模型
 [BERT+BiLSTM+CRF]()     
-[CNN+BiLSTM+CRF]()    
+[CNN+BiLSTM+CRF](https://github.com/jtyoui/BLC/tree/cnn+bilstm+crf)    
 [BiLSTM+CRF](https://github.com/jtyoui/BLC/tree/bilstm+crf) 
 
 ## 数据格式
@@ -39,6 +39,7 @@ LSTM_SIZE = environ.setdefault('LSTM_SIZE', '256') #LSTM大小
 CNN_FILTER = environ.setdefault('CNN_FILTER', '32')#CNN过滤
 LEARNING_RATE = environ.setdefault('LEARNING_RATE', '0.001') #学习率
 SAVE_MODEL_DIR = environ.setdefault('SAVE_MODEL_DIR', 'models/1') #模型保存的路径
+CNN_FILTER = environ.setdefault('CNN_FILTER', '32') # CNN大小
 TRAIN_DATA = environ.setdefault('TRAIN_DATA', 'data/train.txt') #训练集
 TEST_DATA = environ.setdefault('TEST_DATA', 'data/test.txt')# 测试集
 ```
