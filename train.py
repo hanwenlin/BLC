@@ -13,8 +13,8 @@ from tensorflow import keras
 import zipfile
 import os
 
-SEQUENCE_LENGTH = 100  # 序列长度
-EPOCHS = 30
+SEQUENCE_LENGTH = 200  # 序列长度
+EPOCHS = 20
 EARL_STOPPING_PATIENCE = 10
 REDUCE_RL_PATIENCE = 5
 TRAIN_FILE = 'data/train.txt'
