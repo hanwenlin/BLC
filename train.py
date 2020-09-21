@@ -11,6 +11,7 @@ from tensorflow.keras.utils import get_file
 from kashgari.corpus import DataReader
 from tensorflow import keras
 import zipfile
+import json
 import os
 
 SEQUENCE_LENGTH = 200  # 序列长度
@@ -19,7 +20,7 @@ EARL_STOPPING_PATIENCE = 10
 REDUCE_RL_PATIENCE = 5
 TRAIN_FILE = 'data/train.txt'
 TEST_FILE = 'data/test.txt'
-MODEL_PATH = 'BERT_BiLSTM_CRF.h5'
+MODEL_PATH = 'model'
 
 
 def download_bert_if_needs(parent_dir: str) -> str:
@@ -47,4 +48,7 @@ reduce_lr_callback = keras.callbacks.ReduceLROnPlateau(factor=0.1, patience=REDU
 eval_callback = EvalCallBack(kash_model=model, x_data=test_x, y_data=test_y, truncating=True, step=1)
 callbacks = [early_stop, reduce_lr_callback, eval_callback]
 model.fit(train_x, train_y, test_x, test_y, callbacks=callbacks, epochs=EPOCHS)
-model.save(MODEL_PATH)
+with open(os.path.join(MODEL_PATH, 'model_config.json'), 'w', encoding='utf-8') as f:
+    f.write(json.dumps(model.to_dict(), indent=4, ensure_ascii=False))
+model.embedding.embed_model.save_weights(os.path.join(MODEL_PATH, 'embed_model_weights.h5'))
+model.tf_model.save_weights(os.path.join(MODEL_PATH, 'model_weights.h5'))
